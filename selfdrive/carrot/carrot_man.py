@@ -1750,7 +1750,7 @@ class CarrotServ:
 
     if self.carrotIndex % 60 == 0 and "epochTime" in json:
       # op는 ntp를 사용하기때문에... 필요없는 루틴으로 보임.
-      timezone_remote = json.get("timezone", "Asia/Seoul")
+      timezone_remote = json.get("timezone", "Asia/Shanghai")
 
       if not PC:
         self.set_time(int(json.get("epochTime")), timezone_remote)

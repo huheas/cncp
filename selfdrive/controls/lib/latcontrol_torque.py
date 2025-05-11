@@ -142,7 +142,7 @@ class LatControlTorque(LatControl):
 
   def update(self, active, CS, VM, params, steer_limited, desired_curvature, llk, model_data=None):
     self.frame += 1
-    if self.frame % 10 == 0:
+    if self.frame % 100 == 0:
       lateralTorqueCustom = self.params.get_int("LateralTorqueCustom")
       self.dampingFactor = self.params.get_float("DampingFactor") * 0.01
       if lateralTorqueCustom > 0:
@@ -199,7 +199,7 @@ class LatControlTorque(LatControl):
       desired_lateral_accel = desired_curvature * CS.vEgo ** 2
       setpoint = desired_lateral_accel + low_speed_factor * desired_curvature
       measurement = actual_lateral_accel + low_speed_factor * actual_curvature
-      
+
       lateral_jerk_setpoint = 0
       lateral_jerk_measurement = 0
       lookahead_lateral_jerk = 0

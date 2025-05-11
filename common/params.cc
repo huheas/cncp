@@ -122,6 +122,7 @@ std::unordered_map<std::string, uint32_t> keys = {
     {"ExperimentalModeConfirmed", PERSISTENT},
     {"FirmwareQueryDone", CLEAR_ON_MANAGER_START | CLEAR_ON_ONROAD_TRANSITION},
     {"ForcePowerDown", PERSISTENT},
+    {"ForceOffroad", CLEAR_ON_MANAGER_START},
     {"GitBranch", PERSISTENT},
     {"GitCommit", PERSISTENT},
     {"GitCommitDate", PERSISTENT},
@@ -159,6 +160,7 @@ std::unordered_map<std::string, uint32_t> keys = {
     {"LocationFilterInitialState", PERSISTENT},
     {"LongitudinalManeuverMode", CLEAR_ON_MANAGER_START | CLEAR_ON_OFFROAD_TRANSITION},
     {"LongitudinalPersonality", PERSISTENT},
+    {"BydModifiedStockLong", PERSISTENT},
     {"NetworkMetered", PERSISTENT},
     {"ObdMultiplexingChanged", CLEAR_ON_MANAGER_START | CLEAR_ON_ONROAD_TRANSITION},
     {"ObdMultiplexingEnabled", CLEAR_ON_MANAGER_START | CLEAR_ON_ONROAD_TRANSITION},
@@ -202,9 +204,10 @@ std::unordered_map<std::string, uint32_t> keys = {
     {"Version", PERSISTENT},
 
     // carrot
+    {"AlwaysOnLKAS", PERSISTENT},
     {"LongitudinalPersonalityMax", PERSISTENT},
     {"NetworkAddress", CLEAR_ON_MANAGER_START},
-    
+
     {"ApiCache_NavDestinations", PERSISTENT},
     {"NavDestination", CLEAR_ON_MANAGER_START | CLEAR_ON_OFFROAD_TRANSITION},
     {"NavDestinationWaypoints", CLEAR_ON_MANAGER_START | CLEAR_ON_OFFROAD_TRANSITION},
@@ -315,7 +318,7 @@ std::unordered_map<std::string, uint32_t> keys = {
     {"SoftHoldMode", PERSISTENT},
     {"CarrotLatControl", PERSISTENT},
     {"LatMpcPathCost", PERSISTENT},
-    {"LatMpcPathCostTurn", PERSISTENT },
+    {"LatMpcPathCostTurn", PERSISTENT},
     {"LatMpcMotionCost", PERSISTENT},
     {"LatMpcMotionCostTurn", PERSISTENT},
     {"LatMpcAccelCost", PERSISTENT},
@@ -344,11 +347,11 @@ std::unordered_map<std::string, uint32_t> keys = {
     {"CustomSR", PERSISTENT},
     {"SteerRatioRate", PERSISTENT},
     {"SoftRestartTriggered", CLEAR_ON_MANAGER_START},
-    
+
     {"NNFF", PERSISTENT},
     {"NNFFLite", PERSISTENT},
     {"NNFFModelName", CLEAR_ON_OFFROAD_TRANSITION},
- 
+
 };
 
 } // namespace

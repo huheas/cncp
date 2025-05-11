@@ -34,9 +34,9 @@ def get_default_params():
 
     ("SearchInput", "0"),
     ("GMapKey", "0"),
-    ("MapboxStyle", "0"),    
+    ("MapboxStyle", "0"),
 
-
+    ("AlwaysOnLKAS", "0"),
     ("LongitudinalPersonalityMax", "3"),
     ("ShowDebugUI", "0"),
     ("ShowDateTime", "1"),
@@ -132,6 +132,8 @@ def get_default_params():
     ("LateralTorqueCustom", "0"),
     ("LateralTorqueAccelFactor", "2500"),
     ("LateralTorqueFriction", "100"),
+    ("LateralTorqueKp", "100"),
+    ("LateralTorqueKi", "10"),
     ("LateralTorqueKpV", "100"),
     ("LateralTorqueKiV", "10"),
     ("LateralTorqueKf", "100"),
@@ -331,8 +333,8 @@ def manager_thread() -> None:
 
 def main() -> None:
   manager_init()
-  print(f"python ../../opendbc/car/hyundai/values.py > {Params().get_param_path()}/SupportedCars")
-  os.system(f"python ../../opendbc/car/hyundai/values.py > {Params().get_param_path()}/SupportedCars")
+  print(f"python ../../opendbc/car/byd/values.py > {Params().get_param_path()}/SupportedCars")
+  os.system(f"python ../../opendbc/car/byd/values.py > {Params().get_param_path()}/SupportedCars")
   os.system(f"python ../../opendbc/car/gm/values.py > {Params().get_param_path()}/SupportedCars_gm")
   os.system(f"python ../../opendbc/car/toyota/values.py > {Params().get_param_path()}/SupportedCars_toyota")
   os.system(f"python ../../opendbc/car/mazda/values.py > {Params().get_param_path()}/SupportedCars_mazda")
