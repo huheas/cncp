@@ -62,8 +62,8 @@ class SelfdriveD:
 
     self.gps_location_service = get_gps_location_service(self.params)
     self.gps_packets = [self.gps_location_service]
-    self.sensor_packets = ["accelerometer", "gyroscope"]
-    self.camera_packets = ["roadCameraState", "driverCameraState", "wideRoadCameraState"]
+    self.sensor_packets = []
+    self.camera_packets = ["roadCameraState", "wideRoadCameraState"]
 
     self.disable_dm = self.params.get_int("DisableDM")
 

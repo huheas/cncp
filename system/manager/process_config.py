@@ -82,7 +82,7 @@ procs = [
 
   # TODO Make python process once TG allows opening QCOM from child proc
   NativeProcess("dmonitoringmodeld", "selfdrive/modeld", ["./dmonitoringmodeld"], enable_dm, enabled=(WEBCAM or not PC)),
-  NativeProcess("encoderd", "system/loggerd", ["./encoderd"], only_onroad),
+  NativeProcess("encoderd", "system/loggerd", ["./encoderd"], only_onroad, enabled=not PC),
   NativeProcess("stream_encoderd", "system/loggerd", ["./encoderd", "--stream"], notcar),
   NativeProcess("loggerd", "system/loggerd", ["./loggerd"], logging),
   # TODO Make python process once TG allows opening QCOM from child proc
