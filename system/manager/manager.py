@@ -331,11 +331,11 @@ def manager_thread() -> None:
 
 def main() -> None:
   manager_init()
-  print(f"python ../../opendbc/car/byd/values.py > {Params().get_param_path()}/SupportedCars")
-  os.system(f"python ../../opendbc/car/byd/values.py > {Params().get_param_path()}/SupportedCars")
-  os.system(f"python ../../opendbc/car/gm/values.py > {Params().get_param_path()}/SupportedCars_gm")
-  os.system(f"python ../../opendbc/car/toyota/values.py > {Params().get_param_path()}/SupportedCars_toyota")
-  os.system(f"python ../../opendbc/car/mazda/values.py > {Params().get_param_path()}/SupportedCars_mazda")
+  print(f"python opendbc/car/byd/values.py > {Params().get_param_path()}/SupportedCars")
+  os.system(f"python opendbc/car/byd/values.py > {Params().get_param_path()}/SupportedCars")
+  os.system(f"python opendbc/car/gm/values.py > {Params().get_param_path()}/SupportedCars_gm")
+  os.system(f"python opendbc/car/toyota/values.py > {Params().get_param_path()}/SupportedCars_toyota")
+  os.system(f"python opendbc/car/mazda/values.py > {Params().get_param_path()}/SupportedCars_mazda")
 
   if os.getenv("PREPAREONLY") is not None:
     return
