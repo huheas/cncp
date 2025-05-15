@@ -5,8 +5,8 @@ from opendbc.can.parser import CANParser
 from opendbc.car.byd.values import DBC, CanBus
 
 class RadarInterface(RadarInterfaceBase):
-  def __init__(self, CP, CP_SP):
-    super().__init__(CP, CP_SP)
+  def __init__(self, CP):
+    super().__init__(CP)
 
     if CP.radarUnavailable:
       self.rcp = None

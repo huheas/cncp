@@ -10,8 +10,8 @@ ButtonType = structs.CarState.ButtonEvent.Type
 LongCtrlState = structs.CarControl.Actuators.LongControlState
 
 class CarController(CarControllerBase):
-  def __init__(self, dbc_names, CP, CP_SP):
-    super().__init__(dbc_names, CP, CP_SP)
+  def __init__(self, dbc_names, CP):
+    super().__init__(dbc_names, CP)
 
     self.packer = CANPacker(dbc_names[Bus.pt])
 
@@ -40,7 +40,7 @@ class CarController(CarControllerBase):
     self.apply_accel_last = 0
 
 
-  def update(self, CC, CC_SP, CS, now_nanos):
+  def update(self, CC, CS, now_nanos):
     can_sends = []
 
     if (self.frame - self.last_steer_frame) >= CarControllerParams.STEER_STEP:
@@ -149,7 +149,7 @@ class CarController(CarControllerBase):
             self.sss = CS.out.standstill
 
         #re-starting
-        elif starting and accel > 0.1 and CS.out.vEgo < 0.8:
+        elif starting and accel > 0.1 and CS.mrr_leading_dist > 3:
           self.rfss = CS.out.standstill
           self.sss = 0
 
@@ -169,8 +169,8 @@ class CarController(CarControllerBase):
       self.last_acc_frame = self.frame + 1
 
     new_actuators = CC.actuators.as_builder()
-    new_actuators.torque = self.apply_torque_last / CarControllerParams.STEER_MAX
-    new_actuators.torqueOutputCan = self.apply_torque_last
+    new_actuators.steer = self.apply_torque_last / CarControllerParams.STEER_MAX
+    new_actuators.steerOutputCan = self.apply_torque_last
     new_actuators.accel = float(self.apply_accel_last)
     new_actuators.steeringAngleDeg = float(CS.out.steeringAngleDeg)
 
